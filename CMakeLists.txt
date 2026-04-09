@@ -78,6 +78,7 @@ include_directories(LineNumEdit)
 add_subdirectory(LineNumEdit)
 
 add_subdirectory(src)
+add_subdirectory(compare)
 add_subdirectory(tests)
 add_subdirectory(mcdx)
 add_subdirectory(MyWndCtrl)

@@ -1,3 +1,18 @@
+# libRisohEditorCore.a --- Core resource types only (no UI, no GDI+)
+add_library(libRisohEditorCore STATIC
+    AccelRes.cpp
+    DialogRes.cpp
+    DlgInitRes.cpp
+    IconRes.cpp
+    MBitmapDx.cpp
+    MenuRes.cpp
+    PackedDIB.cpp
+    Res.cpp
+    StringRes.cpp
+    ToolbarRes.cpp
+    VersionRes.cpp)
+set_target_properties(libRisohEditorCore PROPERTIES PREFIX "")
+
 # libRisohEditor.a
 add_library(libRisohEditor STATIC
     AccelRes.cpp
@@ -29,7 +44,7 @@ add_executable(RisohEditor WIN32
     RisohEditor_res.rc
     res/Manifest_1.manifest)
 target_link_libraries(RisohEditor
-    LineNumEdit_static libRisohEditor
+    LineNumEdit_static libRisohEditor libRcCompare
     libega gdi32 comctl32 msimg32 winmm gdiplus vfw32 wininet
     oledlg msimg32 advapi32 shlwapi version urlmon)
 target_compile_definitions(RisohEditor PRIVATE -DUNICODE -D_UNICODE)
@@ -44,7 +59,7 @@ add_executable(RisohEditorPortable WIN32
     RisohEditor_res.rc
     res/Manifest_1.manifest)
 target_link_libraries(RisohEditorPortable
-    LineNumEdit_static libRisohEditor
+    LineNumEdit_static libRisohEditor libRcCompare
     libega gdi32 comctl32 msimg32 winmm gdiplus vfw32 wininet
     oledlg msimg32 advapi32 shlwapi version urlmon)
 target_compile_definitions(RisohEditorPortable PRIVATE -DPORTABLE -DUNICODE -D_UNICODE)

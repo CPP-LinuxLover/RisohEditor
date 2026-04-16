@@ -81,5 +81,6 @@ add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(mcdx)
 add_subdirectory(MyWndCtrl)
+add_subdirectory(RisohCompare)
 
 ##############################################################################

@@ -507,7 +507,6 @@ public:
 					// it's a non-child dialog. show the test dialog (with menu if any)
 					MTestDialog dialog(dialog_res, menu, entry->m_lang, dlginit_data);
 					dialog.DialogBoxIndirectDx(hwnd, stream.ptr());
-					stream = std::move(stream);
 				}
 			}
 		}
@@ -561,9 +560,10 @@ public:
 	{
 		switch (uMsg)
 		{
-		HANDLE_MSG(hwnd, WM_CREATE,  OnCreate_);
-		HANDLE_MSG(hwnd, WM_SIZE,    OnSize);
+		HANDLE_MSG(hwnd, WM_CREATE, OnCreate_);
+		HANDLE_MSG(hwnd, WM_SIZE, OnSize);
 		HANDLE_MSG(hwnd, WM_DESTROY, OnDestroy);
+
 		default:
 			return DefaultProcDx(hwnd, uMsg, wParam, lParam);
 		}
